@@ -3,5 +3,19 @@
     "main": "https://discord.gg/YJczNH7Pdd",
     "support": "https://discord.gg/UUp65YDffB"
   },
-  "totalsupportedgames": "0"
+  "AGARWARE": {
+    "KeyLink": "https://jnkie.com/get-key/agar-ware",
+    "SupportedGames": {
+      "Total": "0",
+      "Games": [
+        "Game1",
+        "Game2"
+      ]
+    }
+  },
+  "Status": {
+    "Key": true,
+    "Loader": true,
+    "AGARWARE": true
+  }
 }
