@@ -4,17 +4,17 @@
 	"Show": true,
 	"AlwaysShowOnExec": true,
 
-	"New_Game_Support": {"show": false,
-		"game": "",
-		"text": ""
+	"New_Game_Support": {"show": true,
+		"game": "test",
+		"text": "asdasdas"
 	},
-	"New_Features": {"show": false,
-		"text": ""
+	"New_Features": {"show": true,
+		"text": "ssads"
 	},
-	"Improvements_Bug_Fixes": {"show": false,
-		"text": ""
+	"Improvements_Bug_Fixes": {"show": true,
+		"text": "asasas"
 	},
-	"Changes_Removals": {"show": false,
-		"text": ""
+	"Changes_Removals": {"show": true,
+		"text": "gggggrr"
 	}
 }
