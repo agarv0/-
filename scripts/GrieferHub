@@ -1,2 +1,2 @@
-getgenv().script='GrieferHub';
-loadstring(game:HttpGet([[https://raw.githubusercontent.com/agarv0/-/main/loader]]))();
+getgenv().script='GrieferHub' -- or GRIEFERHUB works
+loadstring(game:HttpGet('https://raw.githubusercontent.com/agarv0/-/refs/heads/main/loader'))()
