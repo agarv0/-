@@ -1,0 +1,721 @@
+--[[
+https://discord.gg/7fDasxV2Ht                                        
+                                                                                    
+  :::.      .,-:::::/   :::.    :::::::..       .::    .   .::::::.    :::::::..  .,::::::  
+  ;;`;;   ,;;-'````'    ;;`;;   ;;;;``;;;;      ';;,  ;;  ;;;' ;;`;;   ;;;;``;;;; ;;;;''''  
+ ,[[ '[[, [[[   [[[[[[/,[[ '[[,  [[[,/[[['       '[[, [[, [[' ,[[ '[[,  [[[,/[[['  [[cccc   
+c$$$cc$$$c"$$c.    "$$c$$$cc$$$c $$$$$$c           Y$c$$$c$P c$$$cc$$$c $$$$$$c    $$""""   
+ 888   888,`Y8bo,,,o88o888   888,888b "88bo,        "88"888   888   888,888b "88bo,888oo,__ 
+ YMM   ""`   `'YMUP"YMMYMM   ""` MMMM   "W"          "M "M"   YMM   ""` MMMM   "W" """"YUMMM                                                      
+ 
+version: h60hseheoo0st8jkm9sn
+--]]
+
+local GUI_Config = {
+	getgenv = false,
+	CoreGui = true,
+	DontRenameLocalScript = true,
+	LocalScriptRename = "LocalScript",
+}
+
+
+--  |  LOCAL SCRIPTS: 2  |  INSTANCES: 64  |  MODULES: 0  |  --
+
+local _AGARWARE={};
+local _r={};
+local _req=require;
+require=function(m) if _r[m] then return _r[m]() end return _req(m) end;
+local function _rstr() local c="abcdefghijklmnopqrstuvwxyz0123456789" local s="" for i=1,math.random(10,20) do s=s..c:sub(math.random(1,#c),math.random(1,#c)) end return s end;
+local _G=game:GetService("RunService"):IsStudio() and _G or (GUI_Config.getgenv and getgenv() or getfenv(0));
+_AGARWARE["1"]=Instance.new("ScreenGui");
+pcall(protect_gui,_AGARWARE["1"]);
+_AGARWARE["1"].Parent=GUI_Config.CoreGui and game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui");
+_AGARWARE["1"].Name=_rstr();
+_AGARWARE["1"]["ScreenInsets"]=Enum.ScreenInsets.DeviceSafeInsets;
+_AGARWARE["1"]["ResetOnSpawn"]=false;
+_AGARWARE["1"]["IgnoreGuiInset"]=true;
+_AGARWARE["1"]["DisplayOrder"]=2147483646;
+_AGARWARE["1"]["ZIndexBehavior"]=Enum.ZIndexBehavior.Sibling;
+_AGARWARE["2"]=Instance.new("Frame",_AGARWARE["1"]);
+_AGARWARE["2"].Name="ChangeLog";
+_AGARWARE["2"]["AnchorPoint"]=Vector2.new(0.5, 0.5);
+_AGARWARE["2"]["Size"]=UDim2.new(0, 350, 0, 370);
+_AGARWARE["2"]["BorderSizePixel"]=0;
+_AGARWARE["2"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["2"]["BackgroundTransparency"]=0.999;
+_AGARWARE["2"]["Position"]=UDim2.new(0.5, 0, 0.5, 0);
+_AGARWARE["2"]["BackgroundColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["3"]=Instance.new("LocalScript",_AGARWARE["2"]);
+_AGARWARE["3"].Name=(GUI_Config.DontRenameLocalScript and "LocalScript" or GUI_Config.LocalScriptRename);
+_AGARWARE["4"]=Instance.new("CanvasGroup",_AGARWARE["2"]);
+_AGARWARE["4"].Name="MainFrame";
+_AGARWARE["4"]["Size"]=UDim2.new(1, 0, 1, 0);
+_AGARWARE["4"]["BorderSizePixel"]=0;
+_AGARWARE["4"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["4"]["BackgroundTransparency"]=0.3;
+_AGARWARE["4"]["BackgroundColor3"]=Color3.fromRGB(12, 12, 12);
+_AGARWARE["5"]=Instance.new("UICorner",_AGARWARE["4"]);
+_AGARWARE["5"].Name="UICorner";
+_AGARWARE["6"]=Instance.new("UIStroke",_AGARWARE["4"]);
+_AGARWARE["6"].Name="UIStroke";
+_AGARWARE["6"]["Color"]=Color3.fromRGB(153, 153, 153);
+_AGARWARE["6"]["ZIndex"]=99;
+_AGARWARE["6"]["Transparency"]=0.9;
+_AGARWARE["7"]=Instance.new("UIPadding",_AGARWARE["4"]);
+_AGARWARE["7"].Name="UIPadding";
+_AGARWARE["7"]["PaddingTop"]=UDim.new(0, 30);
+_AGARWARE["7"]["PaddingBottom"]=UDim.new(0, 5);
+_AGARWARE["7"]["PaddingRight"]=UDim.new(0, 8);
+_AGARWARE["7"]["PaddingLeft"]=UDim.new(0, 8);
+_AGARWARE["8"]=Instance.new("Frame",_AGARWARE["4"]);
+_AGARWARE["8"].Name="Top";
+_AGARWARE["8"]["Size"]=UDim2.new(1, 0, 0, 50);
+_AGARWARE["8"]["BorderSizePixel"]=0;
+_AGARWARE["8"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["8"]["BackgroundTransparency"]=1;
+_AGARWARE["8"]["Position"]=UDim2.new(0, 0, 0, -30);
+_AGARWARE["8"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["9"]=Instance.new("TextLabel",_AGARWARE["8"]);
+_AGARWARE["9"].Name="title";
+_AGARWARE["9"]["BorderSizePixel"]=0;
+_AGARWARE["9"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["9"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+_AGARWARE["9"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["9"]["Size"]=UDim2.new(1, 0, 0, 30);
+_AGARWARE["9"]["TextSize"]=15;
+_AGARWARE["9"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["9"]["Text"]=[[CHANGE LOG]];
+_AGARWARE["9"]["TextColor3"]=Color3.fromRGB(0, 124, 255);
+_AGARWARE["9"]["BackgroundTransparency"]=1;
+_AGARWARE["a"]=Instance.new("UIPadding",_AGARWARE["9"]);
+_AGARWARE["a"].Name="UIPadding";
+_AGARWARE["a"]["PaddingTop"]=UDim.new(0, 3);
+_AGARWARE["a"]["PaddingLeft"]=UDim.new(0, 5);
+_AGARWARE["b"]=Instance.new("TextLabel",_AGARWARE["8"]);
+_AGARWARE["b"].Name="Ver";
+_AGARWARE["b"]["BorderSizePixel"]=0;
+_AGARWARE["b"]["RichText"]=true;
+_AGARWARE["b"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["b"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal);
+_AGARWARE["b"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["b"]["Size"]=UDim2.new(1, 0, 1, 0);
+_AGARWARE["b"]["TextSize"]=11;
+_AGARWARE["b"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["b"]["Text"]=[[v4.0.0  > <font color="#007bff">v4.0.0</font>]];
+_AGARWARE["b"]["TextColor3"]=Color3.fromRGB(189, 189, 189);
+_AGARWARE["b"]["BackgroundTransparency"]=1;
+_AGARWARE["c"]=Instance.new("UIPadding",_AGARWARE["b"]);
+_AGARWARE["c"].Name="UIPadding";
+_AGARWARE["c"]["PaddingTop"]=UDim.new(0, 18);
+_AGARWARE["c"]["PaddingLeft"]=UDim.new(0, 7);
+_AGARWARE["d"]=Instance.new("TextButton",_AGARWARE["4"]);
+_AGARWARE["d"].Name="Exit";
+_AGARWARE["d"]["ZIndex"]=999999999;
+_AGARWARE["d"]["BorderSizePixel"]=0;
+_AGARWARE["d"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["d"]["FontFace"]=Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+_AGARWARE["d"]["TextTransparency"]=1;
+_AGARWARE["d"]["TextSize"]=14;
+_AGARWARE["d"]["Size"]=UDim2.new(1, 0, 0, 40);
+_AGARWARE["d"]["TextColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["d"]["BackgroundTransparency"]=1;
+_AGARWARE["d"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["d"]["Position"]=UDim2.new(0, 0, 1, -40);
+_AGARWARE["e"]=Instance.new("UIPadding",_AGARWARE["d"]);
+_AGARWARE["e"].Name="UIPadding";
+_AGARWARE["e"]["PaddingBottom"]=UDim.new(0, 5);
+_AGARWARE["e"]["PaddingRight"]=UDim.new(0, 10);
+_AGARWARE["e"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["f"]=Instance.new("CanvasGroup",_AGARWARE["d"]);
+_AGARWARE["f"].Name="CanvasGroup";
+_AGARWARE["f"]["Size"]=UDim2.new(1, 0, 1, 0);
+_AGARWARE["f"]["BorderSizePixel"]=0;
+_AGARWARE["f"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["f"]["BackgroundColor3"]=Color3.fromRGB(0, 124, 255);
+_AGARWARE["10"]=Instance.new("UICorner",_AGARWARE["f"]);
+_AGARWARE["10"].Name="UICorner";
+_AGARWARE["11"]=Instance.new("UIStroke",_AGARWARE["f"]);
+_AGARWARE["11"].Name="UIStroke";
+_AGARWARE["11"]["Color"]=Color3.fromRGB(46, 46, 46);
+_AGARWARE["12"]=Instance.new("UIGradient",_AGARWARE["11"]);
+_AGARWARE["12"].Name="UIGradient";
+_AGARWARE["12"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.3), NumberSequenceKeypoint.new(0.500, 0), NumberSequenceKeypoint.new(1.000, 0.3)};
+_AGARWARE["13"]=Instance.new("TextLabel",_AGARWARE["f"]);
+_AGARWARE["13"].Name="TextLabel";
+_AGARWARE["13"]["BorderSizePixel"]=0;
+_AGARWARE["13"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["13"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+_AGARWARE["13"]["Size"]=UDim2.new(1, 0, 1, 0);
+_AGARWARE["13"]["TextSize"]=15;
+_AGARWARE["13"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["13"]["Text"]=[[alr]];
+_AGARWARE["13"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["13"]["BackgroundTransparency"]=1;
+_AGARWARE["14"]=Instance.new("Frame",_AGARWARE["f"]);
+_AGARWARE["14"].Name="Frame";
+_AGARWARE["14"]["Size"]=UDim2.new(1, 0, 1, 0);
+_AGARWARE["14"]["BorderSizePixel"]=0;
+_AGARWARE["14"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["14"]["BackgroundTransparency"]=0.7;
+_AGARWARE["14"]["BackgroundColor3"]=Color3.fromRGB(0, 75, 154);
+_AGARWARE["15"]=Instance.new("UIGradient",_AGARWARE["14"]);
+_AGARWARE["15"].Name="UIGradient";
+_AGARWARE["15"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0), NumberSequenceKeypoint.new(0.500, 1), NumberSequenceKeypoint.new(1.000, 0)};
+_AGARWARE["16"]=Instance.new("CanvasGroup",_AGARWARE["4"]);
+_AGARWARE["16"].Name="CanvasGroup";
+_AGARWARE["16"]["Size"]=UDim2.new(1, 0, 0.39811, 200);
+_AGARWARE["16"]["BorderSizePixel"]=0;
+_AGARWARE["16"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["16"]["BackgroundTransparency"]=1;
+_AGARWARE["16"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["17"]=Instance.new("UIGradient",_AGARWARE["16"]);
+_AGARWARE["17"].Name="UIGradient";
+_AGARWARE["17"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 1), NumberSequenceKeypoint.new(0.016, 1), NumberSequenceKeypoint.new(0.070, 0), NumberSequenceKeypoint.new(0.099, 0), NumberSequenceKeypoint.new(0.835, 0), NumberSequenceKeypoint.new(1.000, 1)};
+_AGARWARE["17"]["Rotation"]=90;
+_AGARWARE["18"]=Instance.new("ScrollingFrame",_AGARWARE["16"]);
+_AGARWARE["18"].Name="List";
+_AGARWARE["18"]["BorderSizePixel"]=0;
+_AGARWARE["18"]["CanvasSize"]=UDim2.new(0, 0, 0, 0);
+_AGARWARE["18"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["18"]["AutomaticCanvasSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["18"]["Active"]=true;
+_AGARWARE["18"]["Size"]=UDim2.new(1, 0, 1, 0);
+_AGARWARE["18"]["ScrollBarImageColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["18"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["18"]["ScrollBarThickness"]=0;
+_AGARWARE["18"]["BackgroundTransparency"]=1;
+_AGARWARE["19"]=Instance.new("UIListLayout",_AGARWARE["18"]);
+_AGARWARE["19"].Name="UIListLayout";
+_AGARWARE["19"]["SortOrder"]=Enum.SortOrder.LayoutOrder;
+_AGARWARE["19"]["Padding"]=UDim.new(0, 5);
+_AGARWARE["1a"]=Instance.new("Frame",_AGARWARE["18"]);
+_AGARWARE["1a"].Name="top";
+_AGARWARE["1a"]["Size"]=UDim2.new(1, 0, 0, 15);
+_AGARWARE["1a"]["BorderSizePixel"]=0;
+_AGARWARE["1a"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["1a"]["LayoutOrder"]=-999999999;
+_AGARWARE["1a"]["BackgroundTransparency"]=1;
+_AGARWARE["1a"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["1b"]=Instance.new("Frame",_AGARWARE["18"]);
+_AGARWARE["1b"].Name="ImprovementsBugFixes";
+_AGARWARE["1b"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["1b"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["1b"]["BorderSizePixel"]=0;
+_AGARWARE["1b"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["1b"]["LayoutOrder"]=-6;
+_AGARWARE["1b"]["BackgroundColor3"]=Color3.fromRGB(16, 16, 16);
+_AGARWARE["1c"]=Instance.new("UIListLayout",_AGARWARE["1b"]);
+_AGARWARE["1c"].Name="UIListLayout";
+_AGARWARE["1c"]["SortOrder"]=Enum.SortOrder.LayoutOrder;
+_AGARWARE["1d"]=Instance.new("TextLabel",_AGARWARE["1b"]);
+_AGARWARE["1d"].Name="Title";
+_AGARWARE["1d"]["TextWrapped"]=true;
+_AGARWARE["1d"]["BorderSizePixel"]=0;
+_AGARWARE["1d"]["RichText"]=true;
+_AGARWARE["1d"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["1d"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+_AGARWARE["1d"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["1d"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["1d"]["TextSize"]=14;
+_AGARWARE["1d"]["LayoutOrder"]=-99;
+_AGARWARE["1d"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["1d"]["Text"]=[[Improvements & Bug Fixes]];
+_AGARWARE["1d"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["1d"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["1d"]["BackgroundTransparency"]=1;
+_AGARWARE["1e"]=Instance.new("UIPadding",_AGARWARE["1d"]);
+_AGARWARE["1e"].Name="UIPadding";
+_AGARWARE["1e"]["PaddingTop"]=UDim.new(0, 8);
+_AGARWARE["1e"]["PaddingBottom"]=UDim.new(0, 3);
+_AGARWARE["1e"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["1f"]=Instance.new("UICorner",_AGARWARE["1b"]);
+_AGARWARE["1f"].Name="UICorner";
+_AGARWARE["20"]=Instance.new("UIStroke",_AGARWARE["1b"]);
+_AGARWARE["20"].Name="UIStroke";
+_AGARWARE["20"]["Color"]=Color3.fromRGB(46, 46, 46);
+_AGARWARE["21"]=Instance.new("UIGradient",_AGARWARE["20"]);
+_AGARWARE["21"].Name="UIGradient";
+_AGARWARE["21"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.3), NumberSequenceKeypoint.new(0.500, 0), NumberSequenceKeypoint.new(1.000, 0.3)};
+_AGARWARE["22"]=Instance.new("TextLabel",_AGARWARE["1b"]);
+_AGARWARE["22"].Name="Features";
+_AGARWARE["22"]["TextWrapped"]=true;
+_AGARWARE["22"]["BorderSizePixel"]=0;
+_AGARWARE["22"]["RichText"]=true;
+_AGARWARE["22"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["22"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Light, Enum.FontStyle.Normal);
+_AGARWARE["22"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["22"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["22"]["TextSize"]=12;
+_AGARWARE["22"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["22"]["Text"]=[[--]];
+_AGARWARE["22"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["22"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["22"]["BackgroundTransparency"]=1;
+_AGARWARE["23"]=Instance.new("UIPadding",_AGARWARE["22"]);
+_AGARWARE["23"].Name="UIPadding";
+_AGARWARE["23"]["PaddingBottom"]=UDim.new(0, 8);
+_AGARWARE["23"]["PaddingRight"]=UDim.new(0, 10);
+_AGARWARE["23"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["24"]=Instance.new("Frame",_AGARWARE["18"]);
+_AGARWARE["24"].Name="NewFeatures";
+_AGARWARE["24"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["24"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["24"]["BorderSizePixel"]=0;
+_AGARWARE["24"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["24"]["LayoutOrder"]=-98;
+_AGARWARE["24"]["BackgroundColor3"]=Color3.fromRGB(16, 16, 16);
+_AGARWARE["25"]=Instance.new("UIListLayout",_AGARWARE["24"]);
+_AGARWARE["25"].Name="UIListLayout";
+_AGARWARE["25"]["SortOrder"]=Enum.SortOrder.LayoutOrder;
+_AGARWARE["26"]=Instance.new("TextLabel",_AGARWARE["24"]);
+_AGARWARE["26"].Name="Title";
+_AGARWARE["26"]["TextWrapped"]=true;
+_AGARWARE["26"]["BorderSizePixel"]=0;
+_AGARWARE["26"]["RichText"]=true;
+_AGARWARE["26"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["26"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+_AGARWARE["26"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["26"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["26"]["TextSize"]=14;
+_AGARWARE["26"]["LayoutOrder"]=-99;
+_AGARWARE["26"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["26"]["Text"]=[[New Features]];
+_AGARWARE["26"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["26"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["26"]["BackgroundTransparency"]=1;
+_AGARWARE["27"]=Instance.new("UIPadding",_AGARWARE["26"]);
+_AGARWARE["27"].Name="UIPadding";
+_AGARWARE["27"]["PaddingTop"]=UDim.new(0, 8);
+_AGARWARE["27"]["PaddingBottom"]=UDim.new(0, 3);
+_AGARWARE["27"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["28"]=Instance.new("UICorner",_AGARWARE["24"]);
+_AGARWARE["28"].Name="UICorner";
+_AGARWARE["29"]=Instance.new("UIStroke",_AGARWARE["24"]);
+_AGARWARE["29"].Name="UIStroke";
+_AGARWARE["29"]["Color"]=Color3.fromRGB(46, 46, 46);
+_AGARWARE["2a"]=Instance.new("UIGradient",_AGARWARE["29"]);
+_AGARWARE["2a"].Name="UIGradient";
+_AGARWARE["2a"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.3), NumberSequenceKeypoint.new(0.500, 0), NumberSequenceKeypoint.new(1.000, 0.3)};
+_AGARWARE["2b"]=Instance.new("TextLabel",_AGARWARE["24"]);
+_AGARWARE["2b"].Name="Features";
+_AGARWARE["2b"]["TextWrapped"]=true;
+_AGARWARE["2b"]["BorderSizePixel"]=0;
+_AGARWARE["2b"]["RichText"]=true;
+_AGARWARE["2b"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["2b"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Light, Enum.FontStyle.Normal);
+_AGARWARE["2b"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["2b"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["2b"]["TextSize"]=12;
+_AGARWARE["2b"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["2b"]["Text"]=[[--]];
+_AGARWARE["2b"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["2b"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["2b"]["BackgroundTransparency"]=1;
+_AGARWARE["2c"]=Instance.new("UIPadding",_AGARWARE["2b"]);
+_AGARWARE["2c"].Name="UIPadding";
+_AGARWARE["2c"]["PaddingBottom"]=UDim.new(0, 8);
+_AGARWARE["2c"]["PaddingRight"]=UDim.new(0, 10);
+_AGARWARE["2c"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["2d"]=Instance.new("Frame",_AGARWARE["18"]);
+_AGARWARE["2d"].Name="ChangesRemovals";
+_AGARWARE["2d"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["2d"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["2d"]["BorderSizePixel"]=0;
+_AGARWARE["2d"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["2d"]["LayoutOrder"]=-5;
+_AGARWARE["2d"]["BackgroundColor3"]=Color3.fromRGB(16, 16, 16);
+_AGARWARE["2e"]=Instance.new("UIListLayout",_AGARWARE["2d"]);
+_AGARWARE["2e"].Name="UIListLayout";
+_AGARWARE["2e"]["SortOrder"]=Enum.SortOrder.LayoutOrder;
+_AGARWARE["2f"]=Instance.new("TextLabel",_AGARWARE["2d"]);
+_AGARWARE["2f"].Name="Title";
+_AGARWARE["2f"]["TextWrapped"]=true;
+_AGARWARE["2f"]["BorderSizePixel"]=0;
+_AGARWARE["2f"]["RichText"]=true;
+_AGARWARE["2f"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["2f"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+_AGARWARE["2f"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["2f"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["2f"]["TextSize"]=14;
+_AGARWARE["2f"]["LayoutOrder"]=-99;
+_AGARWARE["2f"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["2f"]["Text"]=[[Changes & Removals]];
+_AGARWARE["2f"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["2f"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["2f"]["BackgroundTransparency"]=1;
+_AGARWARE["30"]=Instance.new("UIPadding",_AGARWARE["2f"]);
+_AGARWARE["30"].Name="UIPadding";
+_AGARWARE["30"]["PaddingTop"]=UDim.new(0, 8);
+_AGARWARE["30"]["PaddingBottom"]=UDim.new(0, 3);
+_AGARWARE["30"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["31"]=Instance.new("UICorner",_AGARWARE["2d"]);
+_AGARWARE["31"].Name="UICorner";
+_AGARWARE["32"]=Instance.new("UIStroke",_AGARWARE["2d"]);
+_AGARWARE["32"].Name="UIStroke";
+_AGARWARE["32"]["Color"]=Color3.fromRGB(46, 46, 46);
+_AGARWARE["33"]=Instance.new("UIGradient",_AGARWARE["32"]);
+_AGARWARE["33"].Name="UIGradient";
+_AGARWARE["33"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.3), NumberSequenceKeypoint.new(0.500, 0), NumberSequenceKeypoint.new(1.000, 0.3)};
+_AGARWARE["34"]=Instance.new("TextLabel",_AGARWARE["2d"]);
+_AGARWARE["34"].Name="Features";
+_AGARWARE["34"]["TextWrapped"]=true;
+_AGARWARE["34"]["BorderSizePixel"]=0;
+_AGARWARE["34"]["RichText"]=true;
+_AGARWARE["34"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["34"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Light, Enum.FontStyle.Normal);
+_AGARWARE["34"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["34"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["34"]["TextSize"]=12;
+_AGARWARE["34"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["34"]["Text"]=[[--]];
+_AGARWARE["34"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["34"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["34"]["BackgroundTransparency"]=1;
+_AGARWARE["35"]=Instance.new("UIPadding",_AGARWARE["34"]);
+_AGARWARE["35"].Name="UIPadding";
+_AGARWARE["35"]["PaddingBottom"]=UDim.new(0, 8);
+_AGARWARE["35"]["PaddingRight"]=UDim.new(0, 10);
+_AGARWARE["35"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["36"]=Instance.new("Frame",_AGARWARE["18"]);
+_AGARWARE["36"].Name="bottom";
+_AGARWARE["36"]["Size"]=UDim2.new(1, 0, 0, 30);
+_AGARWARE["36"]["BorderSizePixel"]=0;
+_AGARWARE["36"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["36"]["LayoutOrder"]=999999999;
+_AGARWARE["36"]["BackgroundTransparency"]=1;
+_AGARWARE["36"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["37"]=Instance.new("Frame",_AGARWARE["18"]);
+_AGARWARE["37"].Name="NewGame";
+_AGARWARE["37"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["37"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["37"]["BorderSizePixel"]=0;
+_AGARWARE["37"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["37"]["LayoutOrder"]=-99;
+_AGARWARE["37"]["BackgroundColor3"]=Color3.fromRGB(16, 16, 16);
+_AGARWARE["38"]=Instance.new("UIListLayout",_AGARWARE["37"]);
+_AGARWARE["38"].Name="UIListLayout";
+_AGARWARE["38"]["SortOrder"]=Enum.SortOrder.LayoutOrder;
+_AGARWARE["39"]=Instance.new("TextLabel",_AGARWARE["37"]);
+_AGARWARE["39"].Name="Title";
+_AGARWARE["39"]["TextWrapped"]=true;
+_AGARWARE["39"]["BorderSizePixel"]=0;
+_AGARWARE["39"]["RichText"]=true;
+_AGARWARE["39"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["39"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+_AGARWARE["39"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["39"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["39"]["TextSize"]=14;
+_AGARWARE["39"]["LayoutOrder"]=-99;
+_AGARWARE["39"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["39"]["Text"]=[[New Game Supported -  <font color="#007bff">Game Name</font>]];
+_AGARWARE["39"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["39"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["39"]["BackgroundTransparency"]=1;
+_AGARWARE["3a"]=Instance.new("UIPadding",_AGARWARE["39"]);
+_AGARWARE["3a"].Name="UIPadding";
+_AGARWARE["3a"]["PaddingTop"]=UDim.new(0, 8);
+_AGARWARE["3a"]["PaddingBottom"]=UDim.new(0, 3);
+_AGARWARE["3a"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["3b"]=Instance.new("UICorner",_AGARWARE["37"]);
+_AGARWARE["3b"].Name="UICorner";
+_AGARWARE["3c"]=Instance.new("UIStroke",_AGARWARE["37"]);
+_AGARWARE["3c"].Name="UIStroke";
+_AGARWARE["3c"]["Color"]=Color3.fromRGB(46, 46, 46);
+_AGARWARE["3d"]=Instance.new("UIGradient",_AGARWARE["3c"]);
+_AGARWARE["3d"].Name="UIGradient";
+_AGARWARE["3d"]["Transparency"]=NumberSequence.new{NumberSequenceKeypoint.new(0.000, 0.3), NumberSequenceKeypoint.new(0.500, 0), NumberSequenceKeypoint.new(1.000, 0.3)};
+_AGARWARE["3e"]=Instance.new("TextLabel",_AGARWARE["37"]);
+_AGARWARE["3e"].Name="Features";
+_AGARWARE["3e"]["TextWrapped"]=true;
+_AGARWARE["3e"]["BorderSizePixel"]=0;
+_AGARWARE["3e"]["RichText"]=true;
+_AGARWARE["3e"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["3e"]["FontFace"]=Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Light, Enum.FontStyle.Normal);
+_AGARWARE["3e"]["TextXAlignment"]=Enum.TextXAlignment.Left;
+_AGARWARE["3e"]["Size"]=UDim2.new(1, 0, 0, 0);
+_AGARWARE["3e"]["TextSize"]=12;
+_AGARWARE["3e"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["3e"]["Text"]=[[--]];
+_AGARWARE["3e"]["TextColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["3e"]["AutomaticSize"]=Enum.AutomaticSize.Y;
+_AGARWARE["3e"]["BackgroundTransparency"]=1;
+_AGARWARE["3f"]=Instance.new("UIPadding",_AGARWARE["3e"]);
+_AGARWARE["3f"].Name="UIPadding";
+_AGARWARE["3f"]["PaddingBottom"]=UDim.new(0, 8);
+_AGARWARE["3f"]["PaddingRight"]=UDim.new(0, 10);
+_AGARWARE["3f"]["PaddingLeft"]=UDim.new(0, 10);
+_AGARWARE["40"]=Instance.new("UIShadow",_AGARWARE["4"]);
+_AGARWARE["40"].Name="UIShadow";
+_AGARWARE["40"]["BlurRadius"]=UDim.new(0, 20);
+_AGARWARE["40"]["Transparency"]=0.65;
+_AGARWARE["41"]=Instance.new("LocalScript",_AGARWARE["4"]);
+_AGARWARE["41"].Name=(GUI_Config.DontRenameLocalScript and "Changelog" or GUI_Config.LocalScriptRename);
+_AGARWARE["42"]=Instance.new("UIScale",_AGARWARE["2"]);
+_AGARWARE["42"].Name="UIScale";
+do
+local function C_3()
+pcall(function()
+local script=_AGARWARE["3"];
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local frame = script.Parent
+local screenGui = frame.Parent
+frame.Active = true
+if not RunService:IsStudio() then
+	screenGui.Parent = game:GetService("CoreGui")
+end
+
+local dragging = false
+local dragStart
+local startPos
+local DRAG_TWEEN = TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+local function getScale()
+	local uiScale = screenGui:FindFirstChildOfClass("UIScale")
+	return uiScale and uiScale.Scale or 1
+end
+
+local function update(input)
+	local delta = input.Position - dragStart
+	local scale = getScale()
+	local position = UDim2.new(
+		startPos.X.Scale,
+		startPos.X.Offset + (delta.X / scale),
+		startPos.Y.Scale,
+		startPos.Y.Offset + (delta.Y / scale)
+	)
+	TweenService:Create(frame, DRAG_TWEEN, {Position = position}):Play()
+end
+
+frame.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = frame.Position
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) and dragging then
+		update(input)
+	end
+end)
+end)
+end;
+task.spawn(C_3)
+end;
+do
+local function C_41()
+pcall(function()
+local script=_AGARWARE["41"];
+local screenGui = script:FindFirstAncestorWhichIsA("ScreenGui")
+local CanvasFrame = screenGui.ChangeLog.MainFrame
+local MainFrame = screenGui.ChangeLog
+CanvasFrame.GroupTransparency = 1
+CanvasFrame.UIStroke.Transparency = 1
+CanvasFrame.UIShadow.Transparency = 1
+MainFrame.Visible = false
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrame.UIScale.Scale = 0.95
+
+
+
+
+
+
+local RunService = game:GetService("RunService")
+local Version, OldVersion, Show, AlwaysShowOnExec
+local NewGameSupportedShow, NewFeaturesShow, ImprovementsBugsShow, ChangesRemovalsShow
+local NewGameName, NewGameText, NewFeaturesText, ImprovementsBugsText, ChangesRemovalsText
+if not RunService:IsStudio() then
+	local raw = game:HttpGet("https://raw.githubusercontent.com/agarv0/-/refs/heads/main/AGARWARE/changelogs")
+	local function trim(s)
+		return s:match("^%s*(.-)%s*$")
+	end
+	local function stripComment(line)
+		local idx = line:find(" #")
+		if idx then
+			line = line:sub(1, idx - 1)
+		end
+		return trim(line)
+	end
+	local lines = {}
+	for line in (raw .. "\n"):gmatch("(.-)\n") do
+		table.insert(lines, line)
+	end
+	Show = stripComment(lines[1]) == "true"
+	Version = stripComment(lines[2])
+	OldVersion = stripComment(lines[3])
+	AlwaysShowOnExec = stripComment(lines[4]) == "true"
+	local function parseSectionBool(line)
+		local clean = stripComment(line):lower()
+		local hasTrue = clean:find("true") ~= nil
+		local hasFalse = clean:find("false") ~= nil
+		if hasTrue and hasFalse then return false end
+		return hasTrue
+	end
+	NewGameSupportedShow = parseSectionBool(lines[6])
+	NewFeaturesShow = parseSectionBool(lines[7])
+	ImprovementsBugsShow = parseSectionBool(lines[8])
+	ChangesRemovalsShow = parseSectionBool(lines[9])
+	local cursor = 1
+	local gameHeaderStart, gameHeaderEnd, capturedName = raw:find("NEW GAME SUPPORTED %- ([^\n]+)", cursor)
+	if not gameHeaderStart then error("Missing 'NEW GAME SUPPORTED - ' header") end
+	NewGameName = trim(capturedName)
+	local gameEndStart, gameEndEnd = raw:find("END", gameHeaderEnd + 1, true)
+	if not gameEndStart then error("Missing END for NEW GAME SUPPORTED section") end
+	NewGameText = trim(raw:sub(gameHeaderEnd + 1, gameEndStart - 1))
+	cursor = gameEndEnd + 1
+	local function extractFixedSection(header)
+		local s, e = raw:find(header, cursor, true)
+		if not s then error("Missing header: " .. header) end
+		local endS, endE = raw:find("END", e + 1, true)
+		if not endS then error("Missing END for: " .. header) end
+		local content = trim(raw:sub(e + 1, endS - 1))
+		cursor = endE + 1
+		return content
+	end
+	NewFeaturesText = extractFixedSection("NEW FEATURES")
+	ImprovementsBugsText = extractFixedSection("IMPROVEMENTS & BUG FIXES")
+	ChangesRemovalsText = extractFixedSection("CHANGES & REMOVALS")
+end
+local function formatList(text)
+	local result = {}
+	for line in (text .. "\n"):gmatch("(.-)\n") do
+		local clean = line:match("^%s*(.-)%s*$")
+		if clean ~= "" then
+			table.insert(result, "‣  " .. clean)
+		end
+	end
+	return table.concat(result, "<br/>")
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CanvasFrame.Top.Ver.Text = Version ..  '  >  <font color="#007bff">'.. OldVersion .. "</font>"
+local Lists = screenGui.ChangeLog.MainFrame.CanvasGroup.List
+Lists.NewGame.Title.Text = 'New Game Supported  -  <font color="#007bff">' .. NewGameName .. '</font>'
+Lists.NewGame.Features.Text = formatList(NewGameText)
+Lists.NewFeatures.Features.Text = formatList(NewFeaturesText)
+Lists.ImprovementsBugFixes.Features.Text = formatList(ImprovementsBugsText)
+Lists.ChangesRemovals.Features.Text = formatList(ChangesRemovalsText)
+if not NewGameSupportedShow then
+	Lists.NewGame.Visible = false
+end
+if not NewFeaturesShow then
+	Lists.NewFeatures.Visible = false
+end
+if not ImprovementsBugsShow then
+	Lists.ImprovementsBugFixes.Visible = false
+end
+if not ChangesRemovalsShow then
+	Lists.ChangesRemovals.Visible = false
+end
+
+local TweenService = game:GetService("TweenService")
+getgenv().AGARWARE = getgenv().AGARWARE or {}
+getgenv().AGARWARE.ShowChangelogs = false
+
+local isShowing = false
+
+local function applyState(state)
+	if state == isShowing then return end
+	isShowing = state
+	if state then
+		local t1 = TweenService:Create(CanvasFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {GroupTransparency = 0})
+		TweenService:Create(CanvasFrame.UIShadow, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 0.65}):Play()
+		TweenService:Create(CanvasFrame.UIStroke, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 0.9}):Play()
+		TweenService:Create(MainFrame.UIScale, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 1}):Play()
+		MainFrame.Visible = true
+		t1:Play()
+	else
+		local t1 = TweenService:Create(CanvasFrame, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {GroupTransparency = 1})
+		TweenService:Create(CanvasFrame.UIShadow, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 1}):Play()
+		TweenService:Create(CanvasFrame.UIStroke, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Transparency = 1}):Play()
+		TweenService:Create(MainFrame.UIScale, TweenInfo.new(0.25, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {Scale = 0.95}):Play()
+		t1.Completed:Connect(function()
+			if not isShowing then
+				MainFrame.Visible = false
+			end
+		end)
+		t1:Play()
+	end
+end
+
+task.spawn(function()
+	while true do
+		applyState(getgenv().AGARWARE.ShowChangelogs == true)
+		task.wait()
+	end
+end)
+
+
+
+
+
+
+
+
+local waittime = 0.7
+if AlwaysShowOnExec then
+	task.wait(waittime)
+	getgenv().AGARWARE.ShowChangelogs = true
+elseif Show then
+	if isfile and isfile("aw.changelogs.txt") then
+		local ok, savedVersion = pcall(function()
+			return readfile("aw.changelogs.txt")
+		end)
+		if ok and savedVersion ~= Version then
+			pcall(function()
+				writefile("aw.changelogs.txt", Version)
+			end)
+			task.wait(waittime)
+			getgenv().AGARWARE.ShowChangelogs = true
+		end
+	else
+		pcall(function()
+			writefile("aw.changelogs.txt", Version)
+		end)
+		task.wait(waittime)
+		getgenv().AGARWARE.ShowChangelogs = true
+	end
+end
+
+
+
+
+
+
+CanvasFrame.Exit.MouseButton1Click:Connect(function()
+	if getgenv().AGARWARE.ShowChangelogs then
+		getgenv().AGARWARE.ShowChangelogs = false
+	end
+end)
+end)
+end;
+task.spawn(C_41)
+end;
+
+return _AGARWARE["1"], require;
