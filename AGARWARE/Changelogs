@@ -1,7 +1,7 @@
 true # Show Changelog
 v4.0.0 # Current Version
 v4.0.0 # Last Version
-false # AlwaysShowOnExec
+true # Always Show On Execute
 
 New Game Supported = true
 New Features = true
