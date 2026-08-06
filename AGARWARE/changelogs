@@ -1,6 +1,6 @@
 true # Show Changelog
+v4.0.0-alpha.2
 v4.0.0-alpha.1
-v4.0.0-alpha.0
 false # always show on exec
 
 New Game Supported = false
@@ -24,7 +24,13 @@ test67
 END
 
 NEW FEATURES
-this is still in development
+Anti Void
+Anti AFk/Idle
+Anti Fling
+Anti Kick
+FPS Cap
+Boost FPS
+Instant Interact
 END
 
 IMPROVEMENTS & BUG FIXES
