@@ -1,0 +1,223 @@
+--[[
+https://discord.gg/7fDasxV2Ht                                        
+                                                                                    
+  :::.      .,-:::::/   :::.    :::::::..       .::    .   .::::::.    :::::::..  .,::::::  
+  ;;`;;   ,;;-'````'    ;;`;;   ;;;;``;;;;      ';;,  ;;  ;;;' ;;`;;   ;;;;``;;;; ;;;;''''  
+ ,[[ '[[, [[[   [[[[[[/,[[ '[[,  [[[,/[[['       '[[, [[, [[' ,[[ '[[,  [[[,/[[['  [[cccc   
+c$$$cc$$$c"$$c.    "$$c$$$cc$$$c $$$$$$c           Y$c$$$c$P c$$$cc$$$c $$$$$$c    $$""""   
+ 888   888,`Y8bo,,,o88o888   888,888b "88bo,        "88"888   888   888,888b "88bo,888oo,__ 
+ YMM   ""`   `'YMUP"YMMYMM   ""` MMMM   "W"          "M "M"   YMM   ""` MMMM   "W" """"YUMMM                                                      
+ 
+version: kkx3c57oa8l1nnidbd9g
+--]]
+
+local GUI_Config = {
+	getgenv = false,
+	CoreGui = true,
+	DontRenameLocalScript = true,
+	LocalScriptRename = "LocalScript",
+}
+
+
+--  |  LOCAL SCRIPTS: 1  |  INSTANCES: 3  |  MODULES: 0  |  --
+
+local _AGARWARE={};
+local _r={};
+local _req=require;
+require=function(m) if _r[m] then return _r[m]() end return _req(m) end;
+local function _rstr() local c="abcdefghijklmnopqrstuvwxyz0123456789" local s="" for i=1,math.random(10,20) do s=s..c:sub(math.random(1,#c),math.random(1,#c)) end return s end;
+local _G=game:GetService("RunService"):IsStudio() and _G or (GUI_Config.getgenv and getgenv() or getfenv(0));
+_AGARWARE["1"]=Instance.new("ScreenGui");
+pcall(protect_gui,_AGARWARE["1"]);
+_AGARWARE["1"].Parent=GUI_Config.CoreGui and game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui");
+_AGARWARE["1"].Name=_rstr();
+_AGARWARE["1"]["DisplayOrder"]=2147483647;
+_AGARWARE["1"]["ZIndexBehavior"]=Enum.ZIndexBehavior.Sibling;
+_AGARWARE["2"]=Instance.new("TextButton",_AGARWARE["1"]);
+_AGARWARE["2"].Name="TextButton";
+_AGARWARE["2"]["BorderSizePixel"]=0;
+_AGARWARE["2"]["BackgroundColor3"]=Color3.fromRGB(255, 255, 255);
+_AGARWARE["2"]["FontFace"]=Font.new([[rbxasset://fonts/families/Inconsolata.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+_AGARWARE["2"]["TextSize"]=20;
+_AGARWARE["2"]["Size"]=UDim2.new(0, 50, 0, 50);
+_AGARWARE["2"]["TextColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["2"]["BorderColor3"]=Color3.fromRGB(0, 0, 0);
+_AGARWARE["2"]["Text"]=[[Off]];
+_AGARWARE["2"]["Position"]=UDim2.new(0.64545, 0, 0.45577, 0);
+_AGARWARE["3"]=Instance.new("LocalScript",_AGARWARE["2"]);
+_AGARWARE["3"].Name=(GUI_Config.DontRenameLocalScript and "LocalScript" or GUI_Config.LocalScriptRename);
+_AGARWARE["4"]=Instance.new("UIStroke",_AGARWARE["2"]);
+_AGARWARE["4"].Name="UIStroke";
+_AGARWARE["4"]["ApplyStrokeMode"]=Enum.ApplyStrokeMode.Border;
+do
+local function C_3()
+pcall(function()
+local script=_AGARWARE["3"];
+local frame = script.Parent
+frame.Draggable = true
+frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+frame.AnchorPoint = Vector2.new(0.5, 0.5)
+local frameTextoff = "Off"
+local frameTexton = "On"
+frame.Text = frameTextoff
+
+local players = game:GetService("Players")
+local localplayer = players.LocalPlayer
+
+
+function resetchar()
+	local char = localplayer.Character
+	if not char then return end
+	local hum = char:FindFirstChildWhichIsA("Humanoid")
+	if hum then hum.Health = 0 end
+	char:BreakJoints()
+end
+
+
+
+local blacklist = {"Egg", "Hielo"}
+
+local flingon = false
+local activeconnections = {}
+
+local function clearconnections()
+	for _, conn in ipairs(activeconnections) do
+		conn:Disconnect()
+	end
+	activeconnections = {}
+end
+
+local function setupwatchers(char)
+	if not flingon then return end
+	local hrp = char:WaitForChild("HumanoidRootPart")
+	local hum = char:WaitForChild("Humanoid")
+	local savedhrpsize = hrp.Size
+
+	table.insert(activeconnections, hrp:GetPropertyChangedSignal("Size"):Connect(function()
+		if flingon and hrp.Size ~= savedhrpsize then
+			resetchar()
+		end
+	end))
+
+	table.insert(activeconnections, game:GetService("RunService").Heartbeat:Connect(function()
+		if not flingon then return end
+		if hum and hum.Parent then
+			hum.MaxHealth = math.huge
+			hum.Health = math.huge
+		end
+	end))
+
+	table.insert(activeconnections, game:GetService("RunService").Heartbeat:Connect(function()
+		if not flingon then return end
+		local userfolder = workspace:FindFirstChild(localplayer.Name)
+		if userfolder and (userfolder:FindFirstChild("Hielo") or userfolder:FindFirstChild("Egg")) then
+			resetchar()
+		end
+	end))
+end
+
+local function isprotected(target)
+	local wsmodel = workspace:FindFirstChild(target.Name)
+	if wsmodel then
+		for _, name in ipairs(blacklist) do
+			if wsmodel:FindFirstChild(name) then
+				return true
+			end
+		end
+	end
+	local tchar = target.Character
+	local thum = tchar and tchar:FindFirstChildOfClass("Humanoid")
+	local troot = thum and thum.RootPart
+	if troot and troot.CollisionGroup == "NoClip" then
+		return true
+	end
+	return false
+end
+
+local function flingtarget(target)
+	local char = localplayer.Character
+	local hum = char and char:FindFirstChildOfClass("Humanoid")
+	local root = hum and hum.RootPart
+	local tchar = target.Character
+	local thum = tchar and tchar:FindFirstChildOfClass("Humanoid")
+	local thead = tchar and tchar:FindFirstChild("Head")
+
+	if not (char and hum and root and tchar and thum) then return end
+	if not tchar:FindFirstChildWhichIsA("BasePart") then return end
+	if isprotected(target) then return end
+
+	local hitpart = thead or thum.RootPart
+	if not hitpart then return end
+
+	if root.Velocity.Magnitude < 50 then
+		getgenv().oldpos = root.CFrame
+	end
+
+	local att1 = Instance.new("Attachment", root)
+	local att2 = Instance.new("Attachment", hitpart)
+
+	local starttime = tick()
+	local waittime = 0.134
+
+	repeat
+		if not flingon then break end
+		root.CFrame = CFrame.new(hitpart.Position) * CFrame.new(0, 1.5, 0) * CFrame.Angles(math.random(0,1) * math.pi, math.random(0,1) * math.pi, math.random(0,1) * math.pi)
+		root.RotVelocity = Vector3.new(9e8, 9e8, 9e8)
+		task.wait()
+	until hitpart.Velocity.Magnitude > 1000
+		or hitpart.Parent ~= tchar
+		or target.Parent ~= players
+		or hum.Health <= 0
+		or tick() > starttime + waittime
+
+	att1:Destroy()
+	att2:Destroy()
+
+	if root and getgenv().oldpos then
+		root.CFrame = getgenv().oldpos * CFrame.new(0, 0.5, 0)
+		hum:ChangeState("GettingUp")
+		for _, part in pairs(char:GetDescendants()) do
+			if part:IsA("BasePart") then
+				part.Velocity = Vector3.new()
+				part.RotVelocity = Vector3.new()
+			end
+		end
+	end
+end
+
+localplayer.CharacterAdded:Connect(function(char)
+	clearconnections()
+	setupwatchers(char)
+end)
+
+local function flingloop()
+	while flingon do
+		for _, plr in pairs(players:GetPlayers()) do
+			if not flingon then break end
+			if plr ~= localplayer and plr.Character then
+				flingtarget(plr)
+			end
+		end
+		task.wait()
+	end
+end
+
+frame.MouseButton1Click:Connect(function()
+	flingon = not flingon
+	frame.Text = flingon and frameTexton or frameTextoff
+	if flingon then
+		clearconnections()
+		if localplayer.Character then
+			setupwatchers(localplayer.Character)
+		end
+		task.spawn(flingloop)
+	else
+		clearconnections()
+	end
+end)
+end)
+end;
+task.spawn(C_3)
+end;
+
+return _AGARWARE["1"], require;
