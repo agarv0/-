@@ -1,6 +1,6 @@
 true # Show Changelog
+v4.0.0-alpha.3
 v4.0.0-alpha.2
-v4.0.0-alpha.1
 false # always show on exec
 
 New Game Supported = false
@@ -24,13 +24,9 @@ test67
 END
 
 NEW FEATURES
-Anti Void
-Anti AFk/Idle
-Anti Fling
-Anti Kick
-FPS Cap
-Boost FPS
-Instant Interact
+Freecam (Mobile, PC Supported)
+Camera Offset (X, Y, Z)
+Unlock Camera Zoom
 END
 
 IMPROVEMENTS & BUG FIXES
