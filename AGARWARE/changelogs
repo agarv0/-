@@ -1,6 +1,6 @@
 true # Show Changelog
+v4.0.0-alpha.4
 v4.0.0-alpha.3
-v4.0.0-alpha.2
 false # always show on exec
 
 New Game Supported = false
