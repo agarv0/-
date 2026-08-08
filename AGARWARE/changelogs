@@ -5,7 +5,7 @@ false # always show on exec
 
 New Game Supported = false
 New Features = true
-Improvements Bugs = false
+Improvements Bugs = true
 Changes Removals = false
 
 
@@ -24,14 +24,14 @@ test67
 END
 
 NEW FEATURES
-Freecam (Mobile, PC Supported)
-Camera Offset (X, Y, Z)
-Unlock Camera Zoom
-FOV
+Speedhack
+Noclip
+Jump Power
+Infinite Jump & Jetpack
 END
 
 IMPROVEMENTS & BUG FIXES
-
+Fixed Boost FPS enabling myopic in The Chosen One
 END
 
 CHANGES & REMOVALS
