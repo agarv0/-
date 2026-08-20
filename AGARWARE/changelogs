@@ -1,11 +1,11 @@
 true # Show Changelog
+v4.0.0-alpha.6
 v4.0.0-alpha.5
-v4.0.0-alpha.4
 false # always show on exec
-6
+7
 New Game Supported = false
 New Features = true
-Improvements Bugs = true
+Improvements Bugs = false
 Changes Removals = false
 
 
@@ -24,8 +24,16 @@ test67
 END
 
 NEW FEATURES
-Bubble Chat Range (Allows you to see all chat bubbles from any distance away)
-Fix/Restore Camera
+ADDED PLAYERS PAGE
+Spectate
+Stare At
+Headsit
+Follow
+Teleport To
+Loop Fling
+Bang
+Fling
+Chat Mimic (Copys everything the target says)
 END
 
 IMPROVEMENTS & BUG FIXES
