@@ -1,10 +1,10 @@
 true # Show Changelog
+v4.0.0-alpha.7
 v4.0.0-alpha.6
-v4.0.0-alpha.5
 false # always show on exec
-7
-New Game Supported = false
-New Features = true
+8
+New Game Supported = true
+New Features = false
 Improvements Bugs = false
 Changes Removals = false
 
@@ -17,10 +17,11 @@ Changes Removals = false
 
 
 NEW GAME SUPPORTED - The Chosen One
-testing
-test
-test67
-67
+Spychat
+Auto Drop
+Auto Grab
+R6 On Death
+Antis (Visuals, Drag, Vampire, Maptide Nan, Glitch, Teleport, Jail, Freeze, Invisible, Morph, Noclip)
 END
 
 NEW FEATURES
